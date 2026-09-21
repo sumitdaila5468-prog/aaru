@@ -16,18 +16,15 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: ./aaru-universe/package-lock.json
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./aaru-universe
 
       - name: Build project
         run: npm run build
-        working-directory: ./aaru-universe
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./aaru-universe/dist
+          publish_dir: ./dist
